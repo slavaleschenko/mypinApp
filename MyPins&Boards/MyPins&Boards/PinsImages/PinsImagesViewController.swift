@@ -11,6 +11,7 @@ import UIKit
 class PinsImagesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     typealias JSONDictionary = [String: Any]
+    
     var boardName: String?
    
     @IBOutlet weak var collectionView: UICollectionView!
@@ -53,18 +54,12 @@ class PinsImagesViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: PinsImagesCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "myPin", for: indexPath) as! PinsImagesCollectionViewCell
-        // make this on background
-        
-//        _ = self.pinList[indexPath.section].url
-//        cell.imageViewCollect.downloadedFrom(link: "https://i.pinimg.com/originals/cd/e7/e2/cde7e26b4fd45f1eeff2592856123095.jpg")
-//
         DispatchQueue.global().async {
             let imageString = self.pinList[indexPath.row].url
             let imageUrl = URL(string: imageString!)
             let imageData = NSData(contentsOf: imageUrl!)
             DispatchQueue.main.async {
                 cell.imageViewCollect.image = UIImage(data: imageData! as Data)
-
             }
         }
         return cell
@@ -78,6 +73,7 @@ class PinsImagesViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func getPins(completion: @escaping ([PinsModel]) -> ()) {
         let board = boardName?.replacingOccurrences(of: " ", with: "_")
+        print(board!)
         let username = UserDefaults.standard.string(forKey: "username")!
 //        print(board)
 //        print(username)

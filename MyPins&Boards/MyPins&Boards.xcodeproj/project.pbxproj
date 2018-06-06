@@ -21,7 +21,11 @@
 		844F879D20A5F19D00F725BB /* PinsAndBoardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F879C20A5F19D00F725BB /* PinsAndBoardsViewController.swift */; };
 		844F879F20A7473400F725BB /* NotificationCenterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F879E20A7473400F725BB /* NotificationCenterExtension.swift */; };
 		844F87A320A8618300F725BB /* ProfileUserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F87A220A8618300F725BB /* ProfileUserDataModel.swift */; };
-		845F920120C1A626000CE444 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F920020C1A625000CE444 /* ImageViewExtension.swift */; };
+		845F922420C2C26C000CE444 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F922320C2C26C000CE444 /* Services.swift */; };
+		845F922720C4486A000CE444 /* UserDataServicesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F922620C4486A000CE444 /* UserDataServicesExtension.swift */; };
+		845F922920C44982000CE444 /* PinsAndBoardsServicesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F922820C44982000CE444 /* PinsAndBoardsServicesExtension.swift */; };
+		845F922B20C44A00000CE444 /* PinsImagesServicesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F922A20C44A00000CE444 /* PinsImagesServicesExtension.swift */; };
+		845F922D20C4504F000CE444 /* LogInServicesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F922C20C4504F000CE444 /* LogInServicesExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +45,11 @@
 		844F879C20A5F19D00F725BB /* PinsAndBoardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsAndBoardsViewController.swift; sourceTree = "<group>"; };
 		844F879E20A7473400F725BB /* NotificationCenterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtension.swift; sourceTree = "<group>"; };
 		844F87A220A8618300F725BB /* ProfileUserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserDataModel.swift; sourceTree = "<group>"; };
-		845F920020C1A625000CE444 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
+		845F922320C2C26C000CE444 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		845F922620C4486A000CE444 /* UserDataServicesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataServicesExtension.swift; sourceTree = "<group>"; };
+		845F922820C44982000CE444 /* PinsAndBoardsServicesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsAndBoardsServicesExtension.swift; sourceTree = "<group>"; };
+		845F922A20C44A00000CE444 /* PinsImagesServicesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsImagesServicesExtension.swift; sourceTree = "<group>"; };
+		845F922C20C4504F000CE444 /* LogInServicesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInServicesExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				844F878820A34C4800F725BB /* AppDelegate.swift */,
+				845F922220C2C214000CE444 /* Networking */,
 				8449259A20ADE5D9000E0E77 /* Login */,
 				844F87A120A8614500F725BB /* Profile */,
 				8449259920ADE5C2000E0E77 /* PinsAndBoards */,
@@ -120,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				844F879E20A7473400F725BB /* NotificationCenterExtension.swift */,
-				845F920020C1A625000CE444 /* ImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -132,6 +140,26 @@
 				844F879A20A5F16000F725BB /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		845F922220C2C214000CE444 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				845F922320C2C26C000CE444 /* Services.swift */,
+				845F922520C44844000CE444 /* Extension */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		845F922520C44844000CE444 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				845F922620C4486A000CE444 /* UserDataServicesExtension.swift */,
+				845F922820C44982000CE444 /* PinsAndBoardsServicesExtension.swift */,
+				845F922A20C44A00000CE444 /* PinsImagesServicesExtension.swift */,
+				845F922C20C4504F000CE444 /* LogInServicesExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,17 +233,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845F922420C2C26C000CE444 /* Services.swift in Sources */,
+				845F922D20C4504F000CE444 /* LogInServicesExtension.swift in Sources */,
 				8449259C20ADE69E000E0E77 /* PinsAndBoardsModel.swift in Sources */,
+				845F922920C44982000CE444 /* PinsAndBoardsServicesExtension.swift in Sources */,
 				844F879F20A7473400F725BB /* NotificationCenterExtension.swift in Sources */,
 				844925A020B497F3000E0E77 /* PinsImagesViewController.swift in Sources */,
 				844F879B20A5F16000F725BB /* ProfileViewController.swift in Sources */,
 				844F879D20A5F19D00F725BB /* PinsAndBoardsViewController.swift in Sources */,
+				845F922B20C44A00000CE444 /* PinsImagesServicesExtension.swift in Sources */,
+				845F922720C4486A000CE444 /* UserDataServicesExtension.swift in Sources */,
 				844925A520B4BA8D000E0E77 /* PinsImagesModel.swift in Sources */,
 				844F878B20A34C4800F725BB /* LoginViewController.swift in Sources */,
 				844F87A320A8618300F725BB /* ProfileUserDataModel.swift in Sources */,
 				8449259E20B48C53000E0E77 /* BoardsCell.swift in Sources */,
 				844925A320B4A92A000E0E77 /* PinsImagesCollectionViewCell.swift in Sources */,
-				845F920120C1A626000CE444 /* ImageViewExtension.swift in Sources */,
 				844F878920A34C4800F725BB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

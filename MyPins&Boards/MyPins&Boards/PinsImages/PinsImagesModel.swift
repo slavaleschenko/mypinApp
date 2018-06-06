@@ -11,7 +11,6 @@ import Foundation
 class PinsModel {
     let url: String?
     
-    
     init(url: String?) {
         self.url = url
     }
