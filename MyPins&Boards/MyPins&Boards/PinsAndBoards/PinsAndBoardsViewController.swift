@@ -11,7 +11,6 @@ import UIKit
 class PinsAndBoardsViewController: UITableViewController {
 
     var services = Services()
-    
     var boardList = [BoardName]()
     
     override func viewDidLoad() {

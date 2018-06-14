@@ -18,10 +18,3 @@ class BoardName {
     }
 }
 
-//class ListOfBoards: Codable {
-//    let boardList: [BoardName]
-//
-//    init(boardList: [BoardName]) {
-//        self.boardList = boardList
-//    }
-//}

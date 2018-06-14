@@ -11,8 +11,11 @@ import Foundation
 extension Services {
     func getUsersData(completion: @escaping ([UserData]) -> ()) {
         
-        let token = UserDefaults.standard.string(forKey: "token")!
-        let url = URL(string: "https://api.pinterest.com/v1/me/?access_token=\(token)&fields=username,first_name,last_name")!
+        let token = UserDefaults.standard.string(forKey: "token")
+        guard let url = URL(string: "https://api.pinterest.com/v1/me/?access_token=\(token!)&fields=username,first_name,last_name") else {
+            print("url is equal to nil")
+            return
+        }
         
         dataTask = defaultSession.dataTask(with: url) { (data, response, error) in
             if let error = error {

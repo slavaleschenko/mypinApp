@@ -16,15 +16,19 @@ extension Services {
         let clientId = "4964913558019127315"
         let state = "768uyFys"
         let redirectUri = "pdk4964913558019127315://"
-        
-        let requestUrl = URL(string: "\(baseUrl)?response_type=code&client_id=\(clientId)&state=\(state)&scope=read_public&redirect_uri=\(redirectUri)")!
-       
+        guard let requestUrl = URL(string: "\(baseUrl)?response_type=code&client_id=\(clientId)&state=\(state)&scope=read_public&redirect_uri=\(redirectUri)") else {
+            print("URL is equal to nil")
+            return
+        }
         UIApplication.shared.open(requestUrl, options: [:], completionHandler: nil)
     }
     
     func getToken(with code: String) {
 
-        let url = URL(string: "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4964913558019127315&client_secret=90880208cc451e6227e3d29fdf14d8c33b0a57a0e289a53846f1f667e3b7b61f&code=\(code))")!
+        guard let url = URL(string: "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4964913558019127315&client_secret=90880208cc451e6227e3d29fdf14d8c33b0a57a0e289a53846f1f667e3b7b61f&code=\(code)") else {
+            print("URL is equal to nil")
+            return
+        }
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -44,12 +48,12 @@ extension Services {
             let responseString = String(data: data, encoding: .utf8)
             print("responseString = \(String(describing: responseString))")
             do {
-                let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                let token = json!["access_token"] as! String
-                self.token = token
-                print(self.token)
-//                UserDefaults.standard.set("\(token)", forKey: "token")
-    
+                guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String: Any] else {
+                    print("problem in get token")
+                    return
+                }
+                let token = json["access_token"] as! String
+                UserDefaults.standard.set(token, forKey: "token")
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: .didFinishAuthorization, object: nil)
                 }

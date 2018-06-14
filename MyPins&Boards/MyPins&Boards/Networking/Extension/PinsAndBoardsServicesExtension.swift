@@ -10,9 +10,15 @@ import Foundation
 
 extension Services {
     func getBoardName(completion: @escaping ([BoardName]) -> ()) {
-        let token = UserDefaults.standard.string(forKey: "token")!
-        let url = URL(string: "https://api.pinterest.com/v1/me/boards/?access_token=\(token)&fields=name")!
         
+        guard let token = UserDefaults.standard.string(forKey: "token") else{
+            print("token equals nil")
+            return
+        }
+        guard let url = URL(string: "https://api.pinterest.com/v1/me/boards/?access_token=\(token)&fields=name") else {
+            print("URL is equal to nil")
+            return
+        }
         dataTask = defaultSession.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("DataTask error: " + error.localizedDescription + "\n")

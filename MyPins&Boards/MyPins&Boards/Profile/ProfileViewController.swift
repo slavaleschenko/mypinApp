@@ -11,7 +11,6 @@ import UIKit
 class ProfileViewController: UIViewController {
    
     var services = Services()
-    
     var userData = [UserData]()
     
     @IBOutlet weak var userName: UILabel!
@@ -27,18 +26,10 @@ class ProfileViewController: UIViewController {
         
         services.getUsersData { (userData) in
             self.userData = userData
-            self.userName.text = self.userData[0].username
-            self.firstName.text = self.userData[0].firstName
-            self.lastName.text = self.userData[0].lastName
-            
-            self.userName.center.x = self.view.center.x
-            self.firstName.center.x = self.view.center.x
-            self.lastName.center.x = self.view.center.x
+            self.userName.text = self.userData.first?.username
+            self.firstName.text = self.userData.first?.firstName
+            self.lastName.text = self.userData.first?.lastName
         }
         super.viewDidLoad()
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        services.getToken()
-//    }
 }

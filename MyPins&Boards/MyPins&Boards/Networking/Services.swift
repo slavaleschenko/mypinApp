@@ -19,7 +19,4 @@ class Services {
     var userData = [UserData]()
     var boardList = [BoardName]()
     var pinList = [PinsModel]()
-    
-//    var code: String = ""
-    var token: String = ""
 }
